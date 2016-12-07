@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.Assertions;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 
 public class Player : MonoBehaviour
@@ -35,5 +36,22 @@ public class Player : MonoBehaviour
         m_rb.AddForce(movement * m_speed);
 
     }
+
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("death"))
+        {
+
+            SceneManager.LoadScene("gameover");
+
+        }
+
+
+
+    }
+
+
+
 
 }
